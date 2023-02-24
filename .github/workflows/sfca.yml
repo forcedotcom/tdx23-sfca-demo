@@ -1,2 +1,22 @@
-- name: SFDX Scan Pull Request
-  uses: mitchspano/sfdx-scan-pull-request@v0.1.7
+name: Static Analysis
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install SFDX CLI and Scanner
+        run: |
+          npm install sfdx-cli
+          node_modules/sfdx-cli/bin/run plugins:install @salesforce/sfdx-scanner
+      - name: SFCA Report as PR Comments
+        uses: mitchspano/sfdx-scan-pull-request@v0.1.7
+        with:
+          engine: sfge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
