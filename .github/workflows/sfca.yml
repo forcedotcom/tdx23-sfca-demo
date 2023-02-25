@@ -10,7 +10,7 @@ jobs:
         runs-on: 'ubuntu-latest'
         steps:
             - name: Code Review
-              uses: rmohan/sfdx-code-review-action@rm/validations
+              uses: rmohan20/sfdx-code-review-action@rm/validations
               with:
                   source_path: '"***.cls" "***.trigger" "***.js" "***.html" "***.page" "***.cmp" "***.component"'
                   reject_threshold: 1
