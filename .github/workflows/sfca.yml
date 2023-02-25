@@ -12,7 +12,7 @@ jobs:
             - name: Code Review
               uses: packocz/sfdx-code-review-action@v0.3.0
               with:
-                  source_path: ''"***.cls" "***.trigger" "***.js" "***.html" "***.page" "***.cmp" "***.component"'
+                  source_path: '"***.cls" "***.trigger" "***.js" "***.html" "***.page" "***.cmp" "***.component"'
                   reject_threshold: 1
                   max_comments: 20
                   category: '!Documentation'
