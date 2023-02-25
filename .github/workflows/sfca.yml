@@ -4,7 +4,7 @@ on:
     types: [opened, reopened, synchronize]
   workflow_dispatch:
 jobs:
-  analyze:
+  review:
     runs-on: ubuntu-latest
     steps:
       - name: SFCA Report as PR Comments
