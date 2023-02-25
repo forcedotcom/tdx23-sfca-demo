@@ -1,19 +1,21 @@
-name: Static Analysis
+name: Review
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
-  workflow_dispatch:
+    workflow_dispatch:
+    pull_request:
+        types: [opened, synchronize, reopened]
+        branches: [main]
 jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: SFCA Report as PR Comments
-        uses: packocz/sfdx-code-review-action@v0.3.0
-        with:
-          source_path: '"***.cls"'
-          reject_threshold: 1
-          max_comments: 20
-          engine: 'sfge'
-          dfa_setting: 'dfa'
-          projectdir: './'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    review:
+        name: ReviewSource
+        runs-on: 'ubuntu-latest'
+        steps:
+            - name: Code Review
+              uses: packocz/sfdx-code-review-action@v0.3.0
+              with:
+                  source_path: ''"***.cls" "***.trigger" "***.js" "***.html" "***.page" "***.cmp" "***.component"'
+                  reject_threshold: 1
+                  max_comments: 20
+                  category: '!Documentation'
+                  engine: 'pmd, eslint'
+                  dfa_setting: 'dfa'
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
