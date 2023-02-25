@@ -11,9 +11,9 @@ jobs:
         uses: packocz/sfdx-code-review-action@v0.3.0
         with:
           source_path: '"***.cls"'
-                  reject_threshold: 1
-                  max_comments: 20
-                  engine: 'sfge'
-                  dfa_setting: 'dfa'
-                  projectdir: './'
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
+          reject_threshold: 1
+          max_comments: 20
+          engine: 'sfge'
+          dfa_setting: 'dfa'
+          projectdir: './'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
