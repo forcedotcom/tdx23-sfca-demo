@@ -10,12 +10,8 @@ jobs:
         runs-on: 'ubuntu-latest'
         steps:
             - name: Code Review
-              uses: rmohan20/sfdx-code-review-action@rm/validations
+              uses: rmohan20/code-analyzer-action@basics
               with:
-                  source_path: '"***.cls" "***.trigger" "***.js" "***.html" "***.page" "***.cmp" "***.component"'
-                  reject_threshold: 1
-                  max_comments: 20
-                  category: '!Documentation'
-                  engine: 'pmd, eslint'
-                  dfa_setting: 'dfa'
                   github_token: ${{ secrets.GITHUB_TOKEN }}
+                  milliseconds: 100
+                  
