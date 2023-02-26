@@ -9,9 +9,9 @@ jobs:
         name: ReviewSource
         runs-on: 'ubuntu-latest'
         steps:
-            - name: Code Review
+            - name: Execute Code Analyzer
               uses: rmohan20/code-analyzer-action@basics
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  milliseconds: 100
+                  runtype: simple
                   
