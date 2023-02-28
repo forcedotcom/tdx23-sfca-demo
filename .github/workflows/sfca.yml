@@ -19,9 +19,9 @@ jobs:
                   outfile: "sfca_result.json"
             
             - name: Download results
-                uses: actions/download-artifact@v3
-                with:
-                    name: SFCA-Results
+              uses: actions/download-artifact@v3
+              with:
+                name: SFCA-Results
 
             - name: Print results
-                run: cat sfca_result.json
+              run: cat sfca_result.json
