@@ -12,7 +12,6 @@ jobs:
             - name: Execute Code Analyzer
               uses: rmohan20/code-analyzer-action@interfacing
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
                   runtype: simple
                   engine: "pmd, sfge"
                   projectdir: "force-app/main/default"
@@ -23,5 +22,12 @@ jobs:
               with:
                 name: SFCA-Results
 
-            - name: Print results
-              run: cat sfca_result.json
+            - name: Read SFCA results
+              id: get-sfca-results
+              run: echo "SfcaResults=${cat sfca_result.json}" >> $GITHUB_OUTPUT
+
+            - name: Convert SFCA results to PR comments
+              uses: rmohan20/code-analyzer-pr-buddy@tsaction
+              with:
+                github_token: "${{ secrets.GITHUB_TOKEN }}"
+                jsonstring: "${{steps.get-sfca-results.outputs.SfcaResults}}"
