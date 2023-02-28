@@ -10,7 +10,7 @@ jobs:
         runs-on: 'ubuntu-latest'
         steps:
             - name: Execute Code Analyzer
-              uses: rmohan20/code-analyzer-action@basics
+              uses: rmohan20/code-analyzer-action@simple_composite
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   runtype: simple
