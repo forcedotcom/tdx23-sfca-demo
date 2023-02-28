@@ -24,7 +24,7 @@ jobs:
 
             - name: Read SFCA results
               id: get-sfca-results
-              run: echo "SfcaResults=${cat sfca_result.json}" >> $GITHUB_OUTPUT
+              run: echo "SfcaResults=$(cat sfca_result.json)" >> $GITHUB_OUTPUT
 
             - name: Convert SFCA results to PR comments
               uses: rmohan20/code-analyzer-pr-buddy@tsaction
