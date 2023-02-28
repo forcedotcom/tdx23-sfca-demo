@@ -15,4 +15,5 @@ jobs:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   runtype: simple
                   engine: "pmd, sfge"
+                  projectdir: "force-app/main/default"
                   
