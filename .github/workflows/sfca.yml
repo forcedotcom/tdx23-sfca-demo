@@ -3,7 +3,7 @@ on:
     workflow_dispatch:
     pull_request:
         types: [opened, synchronize, reopened]
-        branches: [main]
+        branches: [main, Integration, UAT]
 jobs:
     review:
         name: ReviewSource
