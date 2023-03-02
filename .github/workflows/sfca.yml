@@ -12,7 +12,7 @@ jobs:
           - name: Execute Code Analyzer
             uses: rmohan20/code-analyzer-action@interfacing
             with:
-              runtype: simple
+              runtype: neither
               engine: "pmd, sfge"
               projectdir: "force-app/main/default"
               outfile: "sfca_result.json"
