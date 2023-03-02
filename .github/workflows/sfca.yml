@@ -8,7 +8,6 @@ jobs:
     code-analyzer:
       name: Analyze code
       runs-on: 'ubuntu-latest'
-      continue-on-error: true
       steps:
         - name: Execute Code Analyzer
           uses: rmohan20/code-analyzer-action@interfacing
@@ -17,10 +16,12 @@ jobs:
             engine: "pmd, sfge"
             projectdir: "force-app/main/default"
             outfile: "sfca_result.json"
+          continue-on-error: true
           
     display-results:
       name: Render Code Analyzer Results
       runs-on: 'ubuntu-latest'
+      depends-on: 'code-analyzer'
       steps:        
         - name: Download results
           uses: actions/download-artifact@v3
