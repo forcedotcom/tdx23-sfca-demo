@@ -12,7 +12,7 @@ public with sharing class Cat extends AbstractPet {
         System.debug('meow');
     }
 
-    void nap() {
+    private void nap() {
         System.debug('zzzz');
     }
     
