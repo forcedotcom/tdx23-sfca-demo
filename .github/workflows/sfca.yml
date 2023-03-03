@@ -16,7 +16,6 @@ jobs:
               engine: "pmd, sfge"
               projectdir: "force-app/main/default"
               outfile: "sfca_result.json"
-            continue-on-error: true
             
           - name: Download results
             uses: actions/download-artifact@v3
