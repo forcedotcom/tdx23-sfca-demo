@@ -10,7 +10,7 @@ jobs:
         runs-on: 'ubuntu-latest'
         steps:
           - name: Execute Code Analyzer
-            uses: rmohan20/code-analyzer-action@interfacing
+            uses: rmohan20/code-analyzer-action@typescriptExperiment
             with:
               runtype: simple
               engine: "pmd, sfge"
