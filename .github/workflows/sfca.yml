@@ -16,26 +16,3 @@ jobs:
               engine: "pmd, sfge"
               projectdir: "force-app/main/default"
               outfile: "sfca_result.json"
-            continue-on-error: true
-            
-          - name: Download results
-            uses: actions/download-artifact@v3
-            with:
-              name: SFCA-Results
-
-          - name: Read SFCA results
-            id: get-sfca-results
-            run: echo "SfcaResults=$(cat sfca_result.json)" >> $GITHUB_OUTPUT
-
-            # - name: Read SFCA results
-            #   id: get-sfca-results
-            #   run: |
-            #     JSON_STRING='[{"engine":"pmd","fileName":"/home/runner/work/tdx23-sfca-demo/tdx23-sfca-demo/force-app/main/default/classes/AbstractPet.cls","violations":[{"line":"1","column":"36","endLine":"10","endColumn":"1","severity":3,"ruleName":"ApexDoc","category":"Documentation","url":"https://pmd.github.io/pmd-6.54.0/pmd_rules_apex_documentation.html#apexdoc","message":"\nMissing ApexDoc comment\n"},{"line":"3","column":"12","endLine":"5","endColumn":"5","severity":3,"ruleName":"ApexDoc","category":"Documentation","url":"https://pmd.github.io/pmd-6.54.0/pmd_rules_apex_documentation.html#apexdoc","message":"\nMissing ApexDoc comment\n"}]}]'
-            #     echo "SfcaResults=$JSON_STRING" >> $GITHUB_OUTPUT
-
-          - name: Convert SFCA results to PR comments
-            uses: rmohan20/code-analyzer-pr-buddy@tsaction
-            with:
-              github_token: "${{ secrets.GITHUB_TOKEN }}"
-              jsonstring: "${{steps.get-sfca-results.outputs.SfcaResults}}"
-              runtype: "simple"
