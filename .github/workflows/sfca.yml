@@ -15,4 +15,3 @@ jobs:
               runtype: simple
               engine: "pmd, sfge"
               projectdir: "force-app/main/default"
-              outfile: "sfca_result.json"
