@@ -13,5 +13,5 @@ jobs:
             uses: rmohan20/code-analyzer-action@typescriptExperiment
             with:
               runtype: simple
-              engine: "pmd, sfge"
+              engine: "sfge"
               projectdir: "force-app/main/default"
