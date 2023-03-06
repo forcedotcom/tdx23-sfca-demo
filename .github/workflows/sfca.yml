@@ -1,4 +1,4 @@
-name: Review
+name: Code Analysis
 on:
     workflow_dispatch:
     pull_request:
@@ -6,7 +6,7 @@ on:
         branches: [main, Integration, UAT]
 jobs:
     review:
-        name: ReviewSource
+        name: Analyze files changed
         runs-on: 'ubuntu-latest'
         steps:
           - name: Execute Code Analyzer
