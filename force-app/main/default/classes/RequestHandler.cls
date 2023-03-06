@@ -1,6 +1,9 @@
 public with sharing class RequestHandler {
     public CodeyRequest createRequest(Codey_Obj__c obj) {
         // Further code related to creating a request
+        // dummy
+        // more dummy
+        return new CodeyRequest();
     }
 
     public void post(CodeyRequest request) {
