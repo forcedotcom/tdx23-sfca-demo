@@ -6,7 +6,7 @@ public with sharing class CodeyFeature {
         // further steps to create request
         RequestHandler handler = new RequestHandler();
         CodeyRequest request = handler.createRequest(obj);
-        handler.post(handler);
+        handler.post(request);
     }
     
     Codey_Obj__c createSimpleObj(String name) {
@@ -17,7 +17,7 @@ public with sharing class CodeyFeature {
     Codey_Obj__c createCodeyObj(String name) {
         Codey_Obj__c obj = new Codey_Obj__c();
         obj.Name = name;
-        obj.field1__c = doubleInput(name.length);
+        obj.field1__c = doubleInput(name.length());
         obj.field2__c = doubleString(name);
         return obj;
     }
