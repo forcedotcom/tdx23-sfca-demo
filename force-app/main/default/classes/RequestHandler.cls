@@ -1,5 +1,5 @@
 public with sharing class RequestHandler {
-    public CodeyRequest createRequest(Codey_Obj__c obj) {
+    public CodeyRequest createRequest(LogEvent__c obj) {
         // Further code related to creating a request
         // dummy
         // more dummy
