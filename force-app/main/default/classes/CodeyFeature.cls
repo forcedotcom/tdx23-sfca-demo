@@ -1,7 +1,7 @@
 public with sharing class CodeyFeature {
 
     public void invoke(String someStr) {
-        Codey_Obj__c obj = createCodeyObj(someStr);
+        LogEvent__c obj = createCodeyObj(someStr);
 
         // further steps to create request
         RequestHandler handler = new RequestHandler();
@@ -9,15 +9,15 @@ public with sharing class CodeyFeature {
         handler.post(request);
     }
     
-    Codey_Obj__c createSimpleObj(String someStr) {
-        Codey_Obj__c obj = new Codey_Obj__c(Field1__c = someStr);
+    LogEvent__c createSimpleObj(String someStr) {
+        LogEvent__c obj = new LogEvent__c(Quiddity__c = someStr);
         return obj;
     }
 
-    Codey_Obj__c createCodeyObj(String someStr) {
-        Codey_Obj__c obj = new Codey_Obj__c();
-        obj.field1__c = doubleInput(someStr.length());
-        obj.field2__c = doubleString(someStr);
+    LogEvent__c createCodeyObj(String someStr) {
+        LogEvent__c obj = new LogEvent__c();
+        obj.Quiddity__c = doubleInput(someStr.length());
+        obj.Log_Data__c = doubleString(someStr);
         return obj;
     }
 
