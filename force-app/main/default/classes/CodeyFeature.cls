@@ -1,7 +1,7 @@
 public with sharing class CodeyFeature {
 
     public void invoke(String someStr) {
-        LogEvent__c obj = createCodeyObj(someStr);
+        LogEvent__c obj = createSimpleObj(someStr);
 
         // further steps to create request
         RequestHandler handler = new RequestHandler();
@@ -11,13 +11,6 @@ public with sharing class CodeyFeature {
     
     LogEvent__c createSimpleObj(String someStr) {
         LogEvent__c obj = new LogEvent__c(Quiddity__c = someStr);
-        return obj;
-    }
-
-    LogEvent__c createCodeyObj(String someStr) {
-        LogEvent__c obj = new LogEvent__c();
-        obj.Quiddity__c = doubleInput(someStr.length());
-        obj.Log_Data__c = doubleString(someStr);
         return obj;
     }
 
