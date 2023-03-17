@@ -16,5 +16,9 @@ public with sharing class Cat extends AbstractPet {
         System.debug('stretch');
         System.debug('zzzz');
     }
+
+    private String getName() {
+        return name;
+    }
     
 }
