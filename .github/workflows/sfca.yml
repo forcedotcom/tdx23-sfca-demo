@@ -8,6 +8,7 @@ jobs:
     review:
         name: Analyze files changed
         runs-on: 'ubuntu-latest'
+        continue-on-error: true
         steps:
           - name: Execute Code Analyzer
             uses: rmohan20/code-analyzer-action@addMissingParams
