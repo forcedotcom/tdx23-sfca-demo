@@ -37,7 +37,7 @@ jobs:
 
           - name: Convert SFCA results to PR comments
             if: success()
-            uses: rmohan20/code-analyzer-pr-buddy@tsaction
+            uses: rmohan20/code-analyzer-translator@expandFeatures
             with:
               jsonstring: "${{steps.get-sfca-results.outputs.SfcaResults}}"
               runtype: "simple"
