@@ -12,7 +12,7 @@ jobs:
           - name: Execute Code Analyzer
             uses: rmohan20/code-analyzer-action@addMissingParams
             with:
-              runtype: dfa
+              runtype: simple
               engine: "pmd, sfge"
               projectdir: "force-app/main/default"
               sfgejvmargs: "-Xmx10g"
