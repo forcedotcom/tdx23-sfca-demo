@@ -12,11 +12,10 @@ jobs:
           - name: Execute Code Analyzer
             uses: rmohan20/code-analyzer-action@addMissingParams
             with:
-              runtype: simple
+              runtype: dfa
               engine: "pmd, sfge"
               projectdir: "force-app/main/default"
               sfgejvmargs: "-Xmx10g"
-              pathexplimit: 1000
               outfile: "sfca_result.json"
             continue-on-error: true
             
