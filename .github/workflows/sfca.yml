@@ -15,7 +15,6 @@ jobs:
               runtype: simple
               engine: "sfge,pmd"
               projectdir: "force-app/main/default"
-              sfgejvmargs: "-Xmx10g"
               outfile: "sfca_result.json"
             
           - name: Download results
