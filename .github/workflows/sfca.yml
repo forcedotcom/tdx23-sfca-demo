@@ -16,6 +16,7 @@ jobs:
               engine: "pmd, sfge"
               projectdir: "force-app/main/default"
               sfgejvmargs: "-Xmx10g"
+              pathexplimit: 1000
               outfile: "sfca_result.json"
             continue-on-error: true
             
