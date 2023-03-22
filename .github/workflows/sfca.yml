@@ -13,7 +13,6 @@ jobs:
             uses: rmohan20/code-analyzer-action@addMissingParams
             with:
               runtype: dfa
-              engine: "pmd, sfge"
               projectdir: "force-app/main/default"
               sfgejvmargs: "-Xmx10g"
               outfile: "sfca_result.json"
