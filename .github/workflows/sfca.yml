@@ -11,7 +11,7 @@ jobs:
         continue-on-error: true
         steps:
           - name: Execute Code Analyzer
-            uses: rmohan20/code-analyzer-action@addMissingParams
+            uses: rmohan20/code-analyzer-action@logic_reorg
             with:
               runtype: simple
               engine: "sfge"
