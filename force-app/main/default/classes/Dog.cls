@@ -5,7 +5,6 @@ public with sharing class Dog extends AbstractPet {
 
     void showEnthusiasm() {
         System.debug('wag tail');
-        System.debug('zoomieeessss');
     }
 
     void talk() {
