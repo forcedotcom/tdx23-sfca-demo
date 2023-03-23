@@ -35,7 +35,7 @@ jobs:
             #     echo "SfcaResults=$JSON_STRING" >> $GITHUB_OUTPUT
 
           - name: Render results as markdown
-            if: failure()
+            if: always()
             uses: rmohan20/code-analyzer-translator@expandFeatures
             with:
               runtype: "dfa"
