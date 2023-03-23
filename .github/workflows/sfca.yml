@@ -14,8 +14,7 @@ jobs:
             id: execute-code-analyzer
             uses: rmohan20/code-analyzer-action@logic_reorg
             with:
-              runtype: simple
-              engine: "sfge"
+              runtype: dfa
               projectdir: "force-app/main/default"
             
           # - name: Download results
@@ -39,7 +38,7 @@ jobs:
             if: failure()
             uses: rmohan20/code-analyzer-translator@expandFeatures
             with:
-              runtype: "simple"
+              runtype: "dfa"
               outfile-artifact-name: "${{ steps.execute-code-analyzer.outputs.artifact-name }}"
               outfile-artifact-path: "${{ steps.execute-code-analyzer.outputs.artifact-path }}"
               code-analyzer-exit-code: "${{ steps.execute-code-analyzer.outputs.exit-code }}"
