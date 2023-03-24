@@ -16,17 +16,6 @@ jobs:
             with:
               runtype: dfa
               projectdir: "force-app/main/default"
-            
-          # - name: Download results
-          #   if: failure()
-          #   uses: actions/download-artifact@v3
-          #   with:
-          #     name: SFCA-Results
-
-          # - name: Read SFCA results
-          #   if: success()
-          #   id: get-sfca-results
-          #   run: echo "SfcaResults=$(cat sfca_result.json)" >> $GITHUB_OUTPUT
 
             # - name: Read SFCA results
             #   id: get-sfca-results
