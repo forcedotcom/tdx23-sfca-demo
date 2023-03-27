@@ -11,6 +11,10 @@ jobs:
         continue-on-error: true
         steps:
 
+        # Checkout code to VM
+          - name: Checkout code
+            uses: actions/checkout@v3
+
         # Get list of files changed in PR
           - name: Get changed files
             id: changed-files
