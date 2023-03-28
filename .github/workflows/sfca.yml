@@ -36,7 +36,7 @@ jobs:
         # Execute Code Analyzer with specified target files
           - name: Execute Code Analyzer
             id: execute-code-analyzer
-            uses: rmohan20/code-analyzer-action@behavior_change
+            uses: rmohan20/code-analyzer-action@cleanup
             with:
               render-results: true
               runtype: simple
