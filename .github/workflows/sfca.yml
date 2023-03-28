@@ -38,6 +38,7 @@ jobs:
             id: execute-code-analyzer
             uses: rmohan20/code-analyzer-action@behavior_change
             with:
+              render-results: true
               runtype: dfa
               projectdir: "force-app/main/default"
               target: "${{ steps.populate-target.outputs.Target }}"
