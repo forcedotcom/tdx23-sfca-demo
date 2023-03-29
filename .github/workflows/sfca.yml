@@ -10,24 +10,35 @@ jobs:
         runs-on: 'ubuntu-latest'
         continue-on-error: true
         steps:
+
+        # Checkout code to VM
+          - name: Checkout code
+            uses: actions/checkout@v3
+
+        # Get list of files changed in PR
+          - name: Get changed files
+            id: changed-files
+            uses: tj-actions/changed-files@v35
+            with:
+              files: ${{ inputs.targethome }}
+
+        # Create Target parameter value from list of changed files
+          - id: populate-target
+            shell: bash
+            run: |
+              TARGET_LIST=""
+              for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+                TARGET_LIST=$file,$TARGET_LIST
+              done
+              TARGET=${TARGET_LIST::-1}
+              echo "Target=$TARGET" >> $GITHUB_OUTPUT
+
+        # Execute Code Analyzer with specified target files
           - name: Execute Code Analyzer
             id: execute-code-analyzer
-            uses: rmohan20/code-analyzer-action@logic_reorg
+            uses: rmohan20/code-analyzer-action@main
             with:
-              runtype: dfa
+              render-results: true
+              runtype: simple
               projectdir: "force-app/main/default"
-
-            # - name: Read SFCA results
-            #   id: get-sfca-results
-            #   run: |
-            #     JSON_STRING='[{"engine":"pmd","fileName":"/home/runner/work/tdx23-sfca-demo/tdx23-sfca-demo/force-app/main/default/classes/AbstractPet.cls","violations":[{"line":"1","column":"36","endLine":"10","endColumn":"1","severity":3,"ruleName":"ApexDoc","category":"Documentation","url":"https://pmd.github.io/pmd-6.54.0/pmd_rules_apex_documentation.html#apexdoc","message":"\nMissing ApexDoc comment\n"},{"line":"3","column":"12","endLine":"5","endColumn":"5","severity":3,"ruleName":"ApexDoc","category":"Documentation","url":"https://pmd.github.io/pmd-6.54.0/pmd_rules_apex_documentation.html#apexdoc","message":"\nMissing ApexDoc comment\n"}]}]'
-            #     echo "SfcaResults=$JSON_STRING" >> $GITHUB_OUTPUT
-
-          - name: Render results as markdown
-            if: always()
-            uses: rmohan20/code-analyzer-translator@expandFeatures
-            with:
-              runtype: "dfa"
-              outfile-artifact-name: "${{ steps.execute-code-analyzer.outputs.artifact-name }}"
-              outfile-artifact-path: "${{ steps.execute-code-analyzer.outputs.artifact-path }}"
-              code-analyzer-exit-code: "${{ steps.execute-code-analyzer.outputs.exit-code }}"
+              target: "${{ steps.populate-target.outputs.Target }}"

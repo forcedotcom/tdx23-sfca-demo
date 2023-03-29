@@ -11,5 +11,4 @@ public with sharing class Cat extends AbstractPet {
     void talk() {
         System.debug('meow');
     }
-
 }
