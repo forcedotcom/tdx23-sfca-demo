@@ -18,7 +18,7 @@ jobs:
         # Get list of files changed in PR
           - name: Get changed files
             id: changed-files
-            uses: tj-actions/changed-files@v35
+            uses: tj-actions/changed-files@v41
             with:
               files: ${{ inputs.targethome }}
 
