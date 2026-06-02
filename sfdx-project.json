@@ -5,8 +5,8 @@
       "default": true
     }
   ],
-  "name": "dx-empty",
+  "name": "Astro Scratch Org",
   "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sfdcLoginUrl": "https://force-speed-8581.scratch.my.salesforce.com",
   "sourceApiVersion": "55.0"
 }
